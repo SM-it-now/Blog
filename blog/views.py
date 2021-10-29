@@ -9,7 +9,7 @@ from .models import Post
 # ListView 라이브러리를 이용해서 post 목록을 구현
 class PostList(ListView):
     model = Post
-    template_name = 'blog/index.html'
+    template_name = 'blog/post_list.html'
     ordering = '-pk'
 
 # DetailView 라이브러리를 이용해서 post 상세화면 구현

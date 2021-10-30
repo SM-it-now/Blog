@@ -16,8 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# 업로드된 이미지를 클릭했을 경우, 이미지 화면으로 전환할 수 있게 해준다.
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('', include('single_pages.urls')),
 ]
+
+# 업로드 이미지 url추가
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

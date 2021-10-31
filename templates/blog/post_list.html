@@ -79,9 +79,11 @@
 <!-- End Modal -->
 <div class="container my-3">
     <div class="row">
-        <div class="col-md-8 col-lg-9">
+        <div class="col-md-8 col-lg-9" id="main-area">
             <h1>Blog</h1>
 
+            <!-- 포스트 레코드가 있다면 출력-->
+            {% if post_list.exists %}
             <!-- Blog Post -->
             {% for post in post_list %}
             <div class="card mb-4">
@@ -99,6 +101,11 @@
                 </div>
             </div>
             {% endfor %}
+
+            <!-- 포스트 레코드가 없다면 출력 -->
+            {% else %}
+            <h3>아직 게시물이 없습니다.</h3>
+            {% endif %}
             <!-- End Post -->
         </div>
 

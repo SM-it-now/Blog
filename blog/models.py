@@ -20,7 +20,7 @@ class Post(models.Model):
 
     # get_absolute_url을 상세페이지 이동 url로 사용하기 위한 함수 구현.
     def get_absolute_url(self):
-        return f'blog/{self.pk}/'
+        return f'/blog/{self.pk}/'
 
     # 상세페이지의 file 확장자 명을 출력하기 위한 함수
     def get_file_name(self):

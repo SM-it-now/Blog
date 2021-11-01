@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.01 (포스트 목록 페이지와 포스트 상세 페이지의 공통 템플릿 모듈화)">
-      <change afterPath="$PROJECT_DIR$/templates/blog/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog/navbar.html" afterDir="false" />
+    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.01 (navbar와 footer 모듈화)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/single_post_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635748533569</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="21.11.01 (navbar와 footer 모듈화)">
+      <created>1635753335295</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635753335295</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +162,7 @@
     <MESSAGE value="21.10.31 (포스트 목록에 포스트가 하나도 없는 경우 테스트코드 작성)" />
     <MESSAGE value="21.11.01 (포스트 상세 페이지 테스트코드 작성)" />
     <MESSAGE value="21.11.01 (포스트 목록 페이지와 포스트 상세 페이지의 공통 템플릿 모듈화)" />
-    <option name="LAST_COMMIT_MESSAGE" value="21.11.01 (포스트 목록 페이지와 포스트 상세 페이지의 공통 템플릿 모듈화)" />
+    <MESSAGE value="21.11.01 (navbar와 footer 모듈화)" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.11.01 (navbar와 footer 모듈화)" />
   </component>
 </project>

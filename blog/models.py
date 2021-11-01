@@ -1,5 +1,6 @@
 from django.db import models
 import os
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -15,8 +16,11 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    # 작성자를 User의 외래기로 설계하고 SET_NULL을 사용해서, 만약 작성자가 탈퇴 및 삭제되더라고 None로 표시되고 포스트는 남아있게 구현.
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+
     def __str__(self):
-        return self.title
+        return '{} :: {}'.format(self.title, self.author)
 
     # get_absolute_url을 상세페이지 이동 url로 사용하기 위한 함수 구현.
     def get_absolute_url(self):

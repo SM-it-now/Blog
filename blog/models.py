@@ -4,6 +4,17 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+# 카테고리 모델
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, allow_unicode=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
 # Post 모델의 제목, 내용, 생성일자를 생성하고, created_at과 updated_at을 날짜필드로 받고 auto_now_add 와 auto_now 인자를 추가해서 admin 페이지에서 추가할때 자동 설정되도록 함.
 class Post(models.Model):
     title = models.CharField(max_length=50)
@@ -17,7 +28,10 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     # 작성자를 User의 외래기로 설계하고 SET_NULL을 사용해서, 만약 작성자가 탈퇴 및 삭제되더라고 None로 표시되고 포스트는 남아있게 구현.
-    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+
+    # 카테고리 (다대일 관계) 외래키로 연결.
+    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return '{} :: {}'.format(self.title, self.author)
@@ -33,3 +47,6 @@ class Post(models.Model):
     # 상세페이지의 file 확장자를 찾아내는 함수.
     def get_file_ext(self):
         return self.get_file_name().split('.')[-1]
+
+
+

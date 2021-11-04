@@ -12,6 +12,12 @@
     <article>
         <!-- Post header-->
         <header class="mb-4">
+            <!-- category 출력 -->
+            {% if post.category %}
+            <span class="badge bg-secondary float-end">{{ post.category }}</span>
+            {% else %}
+            <span class="badge bg-secondary float-end">{{ 미분류 }}</span>
+            {% endif %}
             <!-- Post title-->
             <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
             <!-- Post hook_text -->
@@ -19,8 +25,8 @@
             <!-- Post meta content-->
             <div class="text-muted fst-italic mb-2">{{ post.created_at }} .by {{ post.author | upper }}</div>
             <!-- Post categories-->
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Django</a>
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Bootstrap</a>
+<!--            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Django</a>-->
+<!--            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Bootstrap</a>-->
         </header>
         <!-- Preview image figure-->
         {% if post.head_img %}

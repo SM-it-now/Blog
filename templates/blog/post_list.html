@@ -14,11 +14,13 @@
     <img class="card-img-top" src="{{ post.head_img.url }}" height="400" alt="Card image cap">
     {% endif %}
     <div class="card-body">
+        <!-- category 출력 -->
         {% if post.category %}
-        <span class="badge badge-secondary">{{ post.category }}</span>
+        <span class="badge bg-secondary float-end">{{ post.category }}</span>
         {% else %}
-        <span class="badge badge-secondary">미분류</span>
+        <span class="badge bg-secondary float-end">미분류</span>
         {% endif %}
+        <!-- category 출력 -->
         <div class="small text-muted">{{ post.created_at }} .by <a href="#">{{ post.author | upper }}</a></div>
         <h2 class="card-title h4">{{ post.title }}</h2>
         {% if post.hook_text %}

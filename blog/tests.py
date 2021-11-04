@@ -28,6 +28,20 @@ class TestView(TestCase):
             author=self.user_obama,
         )
 
+    def category_card_test(self, soup):
+        categories_card = soup.find('div', id='categories-card')
+        self.assertIn('Categories', categories_card.text)
+        self.assertIn(
+            f'{self.category_fasion.name} ({self.category_fasion.post_set.count()})',
+            categories_card.text
+        )
+        self.assertIn(
+            f'{self.category_ootd.name} ({self.category_ootd.post_set.count()})',
+            categories_card.text
+        )
+        self.assertIn(f'미분류 (0)', categories_card.text)
+
+
     #  네비게이션 바 테스트코드
     def navbar_test(self, soup):
         navbar = soup.nav

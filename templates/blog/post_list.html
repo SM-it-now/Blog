@@ -9,11 +9,16 @@
 {% if post_list.exists %}
 <!-- Blog Post -->
 {% for post in post_list %}
-<div class="card mb-4">
+<div class="card mb-4" id="post-{{ post.pk }}">
     {% if post.head_img %}
     <img class="card-img-top" src="{{ post.head_img.url }}" height="400" alt="Card image cap">
     {% endif %}
     <div class="card-body">
+        {% if post.category %}
+        <span class="badge badge-secondary">{{ post.category }}</span>
+        {% else %}
+        <span class="badge badge-secondary">미분류</span>
+        {% endif %}
         <div class="small text-muted">{{ post.created_at }} .by <a href="#">{{ post.author | upper }}</a></div>
         <h2 class="card-title h4">{{ post.title }}</h2>
         {% if post.hook_text %}

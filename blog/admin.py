@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Category
+from .models import Post, Category, Tag
 
 # Register your models here.
 
@@ -7,9 +7,15 @@ from .models import Post, Category
 class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'content', 'created_at')
 
+# category모델을 admin에 출력.
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name', )}
 
+class TagAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
 
+
+# admin 페이지에 출력.
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Tag, TagAdmin)

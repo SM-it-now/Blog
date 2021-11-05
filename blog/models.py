@@ -18,6 +18,17 @@ class Category(models.Model):
     def get_absolute_url(self):
         return f'/blog/category/{self.slug}/'
 
+# Tag 모델
+class Tag(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, allow_unicode=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f'/blog/tag/{self.slug}/'
+
 # Post 모델의 제목, 내용, 생성일자를 생성하고, created_at과 updated_at을 날짜필드로 받고 auto_now_add 와 auto_now 인자를 추가해서 admin 페이지에서 추가할때 자동 설정되도록 함.
 class Post(models.Model):
     title = models.CharField(max_length=50)
@@ -34,7 +45,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
     # 카테고리 (다대일 관계) 외래키로 연결.
-    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
+
+    # 태그와 포스트의 다대다 관계.
+    tags = models.ManyToManyField(Tag, null=True, blank=True)
 
     def __str__(self):
         return '{} :: {}'.format(self.title, self.author)

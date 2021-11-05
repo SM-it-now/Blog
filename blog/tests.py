@@ -27,6 +27,11 @@ class TestView(TestCase):
             category=self.category_ootd,
             author=self.user_obama,
         )
+        self.post_003 = Post.objects.create(
+            title='세 번째 포스트입니다.',
+            content='Hello World. We are the world 3',
+            author=self.user_obama
+        )
 
     def category_card_test(self, soup):
         categories_card = soup.find('div', id='categories-card')
@@ -39,7 +44,7 @@ class TestView(TestCase):
             f'{self.category_ootd.name} ({self.category_ootd.post_set.count()})',
             categories_card.text
         )
-        self.assertIn(f'미분류 (0)', categories_card.text)
+        self.assertIn(f'미분류 (1)', categories_card.text)
 
 
     #  네비게이션 바 테스트코드
@@ -63,7 +68,7 @@ class TestView(TestCase):
     # 포스트 목록 페이지 테스트코드
     def test_post_list(self):
         # Post가 있는 경우
-        self.assertEqual(Post.objects.count(), 2)
+        self.assertEqual(Post.objects.count(), 3)
 
         response = self.client.get('/blog/')
         self.assertEqual(response.status_code, 200)

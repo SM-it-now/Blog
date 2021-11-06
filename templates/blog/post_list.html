@@ -3,7 +3,10 @@
 {% extends 'blog/base.html' %}
 
 {% block main_area %}
-<h1>Blog {% if category %}<span class="badge bg-secondary">{{ category }}</span>{% endif %}</h1>
+<!-- 카테고리 및 태그 페이지 -->
+<h1>Blog {% if category %}<span class="badge bg-secondary">{{ category }}</span>{% endif %}
+    {% if tag %}<span class="badge bg-light text-dark"><i class="fas fa-tags"></i>{{ tag }} ({{ tag.post_set.count }}){% endif %}</span>
+</h1>
 <!-- 포스트 레코드가 있다면 출력-->
 {% if post_list.exists %}
 <!-- Blog Post -->

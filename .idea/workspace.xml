@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.06 (태그 별 페이지 구현)">
-      <change afterPath="$PROJECT_DIR$/templates/blog/base_full_width.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog/post_form.html" afterDir="false" />
+    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.08 (포스트 작석 폼 구현)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636187535394</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="21.11.08 (포스트 작석 폼 구현)">
+      <created>1636382861067</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1636382861067</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,6 +239,7 @@
     <MESSAGE value="21.11.04 (카테고리별 페이지 구현)" />
     <MESSAGE value="21.11.05 (포스트 목록 페이지와 포스트 상세 페이지의 태그 필드 추가 및 출력)" />
     <MESSAGE value="21.11.06 (태그 별 페이지 구현)" />
-    <option name="LAST_COMMIT_MESSAGE" value="21.11.06 (태그 별 페이지 구현)" />
+    <MESSAGE value="21.11.08 (포스트 작석 폼 구현)" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.11.08 (포스트 작석 폼 구현)" />
   </component>
 </project>

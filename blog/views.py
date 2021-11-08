@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Post, Category, Tag
 
 
@@ -59,3 +59,15 @@ def tag_page(request, slug):
         'no_category_post_count': no_category_post_count
     }
     return render(request, 'blog/post_list.html', context)
+
+# 포스트 작성 폼
+class PostCreate(CreateView):
+    model = Post
+    fields = [
+        'title',
+        'content',
+        'hook_text',
+        'head_img',
+        'file_upload',
+        'category'
+    ]

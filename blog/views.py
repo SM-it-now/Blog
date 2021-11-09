@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post, Category, Tag
 
 
@@ -73,9 +73,14 @@ class PostCreate(LoginRequiredMixin, CreateView):
         'category'
     ]
 
+    # 스태프 또는 슈퍼 유저만 포스트 작성 폼에 접근 권한 부여.
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.is_staff
+
+    # 로그인한 사용자만 포스트 작성 폼 접근 가능.
     def form_valid(self, form):
         current_user = self.request.user
-        if current_user.is_authenticated:
+        if current_user.is_authenticated and (current_user.is_staff or current_user.is_usperuser):
             form.instance.author = current_user
             return super(PostCreate, self).form_valid(form)
         else:

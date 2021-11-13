@@ -124,6 +124,18 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 
     template_name = 'blog/post_update_form.html'
 
+    # CBV를 사용할 떄 템플릿으로 추가 인자를 넘기기 위함.
+    def get_context_data(self, **kwargs):
+        context = super(PostUpdate, self).get_context_data()
+        if self.object.tags.exists():
+            tags_str_list = list()
+            for t in self.object.tags.all():
+                tags_str_list.append(t.name)
+            context['tags_str_list'] = ','.join(tags_str_list)
+
+        return context
+
+
     # dispatch() 메서드는 방문자가 서버에 GET방식인지 POST방식으로 요청했는지 판단하는 기능.
     def dispatch(self, request, *args, **kwargs):
         # self.get_object() == Post.objects.get(pk=pk)와 같다.
@@ -132,4 +144,27 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
         # 권한이 없는 방문자가 접근할때 403오류 메시지 출력.
         else:
             raise PermissionDenied
+
+    def form_valid(self, form):
+        response = super(PostUpdate, self).form_valid(form)
+        # 수정 전의 태그 데이터를 삭제
+        self.object.tags.clear()
+        tags_str = self.request.POST.get('tags_str')
+
+        if tags_str:
+            tags_str = tags_str.strip()
+            tags_str = tags_str.replace(';', ',')
+            tags_list = tags_str.split(',')
+
+            for t in tags_list:
+                t = t.strip()
+                tag, is_tag_created = Tag.object.get_or_create(name=t)
+                if is_tag_created:
+                    tag.slug = slugify(t, allow_unicode=True)
+                    tag.save()
+                self.object.tag.add(tag)
+
+        return response
+
+
 

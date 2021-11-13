@@ -11,6 +11,15 @@ Update Post - Blog
     {% csrf_token %}
     <table>
         {{ form }}
+        <!-- 태그 중복 선택과 기존에 존재하는 태그는 생성하지 않고 그렇지 않은 태그들만 생성 -->
+        <tr>
+            <th>
+                <label for="id_tags_str">Tags:</label>
+            </th>
+            <td>
+                <input type="text" name="tags_str" id="id_tags_str" value="{{ tags_str_default }}">
+            </td>
+        </tr>
     </table>
     <br/>
     <button type="submit" class="btn btn-primary">Submit</button>

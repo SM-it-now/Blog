@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.11 (포스트 수정 기능 구현)">
+    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.13 (포스트 작성할 때 텍스트로 태그 저장)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/post_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/post_update_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_update_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636559097586</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="21.11.13 (포스트 작성할 때 텍스트로 태그 저장)">
+      <created>1636810520923</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1636810520923</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +272,7 @@
     <MESSAGE value="21.11.09 (로그인한 사용자에게만 포스트 작성 폼 열어주기)" />
     <MESSAGE value="21.11.09 (포스트 작성 페이지 접근 권한 설정)" />
     <MESSAGE value="21.11.11 (포스트 수정 기능 구현)" />
-    <option name="LAST_COMMIT_MESSAGE" value="21.11.11 (포스트 수정 기능 구현)" />
+    <MESSAGE value="21.11.13 (포스트 작성할 때 텍스트로 태그 저장)" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.11.13 (포스트 작성할 때 텍스트로 태그 저장)" />
   </component>
 </project>

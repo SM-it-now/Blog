@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post, Category, Tag
 from django.core.exceptions import PermissionDenied
+from django.utils.text import slugify
 
 
 # CBV를 이용한 views 클래스 구현하기.
@@ -83,7 +84,29 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         current_user = self.request.user
         if current_user.is_authenticated and (current_user.is_staff or current_user.is_usperuser):
             form.instance.author = current_user
-            return super(PostCreate, self).form_valid(form)
+
+            # form_valid() 함수의 결과값을 response에 저장.
+            response = super(CreateView, self).form_valid(form)
+
+            # post_form.html에서 form method가 post로 설정된 내용에서 tags_str로 전달된 값을 변수로 저장.
+            tags_str = self.request.POST.get('tags_str')
+            if tags_str:
+                tags_str = tags_str.strip()
+                tags_str = tags_str.replace(';', ',')
+                tags_list = tags_str.split(',')
+
+                for t in tags_list:
+                    t = t.strip()
+
+                    # get_or_create() 메서드는 name이 t인 tag 인스턴스와 두번째는 이 인스턴스가 새로 생성되었는지 나타내는 bool 형태 값.
+                    tag, is_tag_created = Tag.objects.get_or_create(name=t)
+
+                    if is_tag_created:
+                        tag.slug = slugify(t, allow_unicode=True)
+                        tag.save()
+
+                    self.objects.tags.add(tag)
+            return response
         else:
             return redirect('/blog/')
 
@@ -96,8 +119,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
         'hook_text',
         'head_img',
         'file_upload',
-        'category',
-        'tags',
+        'category'
     ]
 
     template_name = 'blog/post_update_form.html'

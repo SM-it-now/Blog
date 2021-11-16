@@ -77,5 +77,8 @@ class Comment(models.Model):
     def __str__(self):
         return '{} :: {}'.format(self.author, self.content)
 
+    def get_absolute_url(self):
+        return f'{self.post.get_absolute_url()}#comment-{self.pk}'
+
 
 

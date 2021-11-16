@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.14 (소셜 로그인 기능 구현 및 account를 이용한 로그아웃 회원가입 추가)">
+    <list default="true" id="c9c9b013-4af4-4cdb-a2d5-4dcc609aa69b" name="Default Changelist" comment="21.11.15 (comment 모델 생성과 post 상세 페이지의 댓글 출력.)">
+      <change afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/blog/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_detail.html" afterDir="false" />
     </list>
@@ -16,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -248,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636897163266</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="21.11.15 (comment 모델 생성과 post 상세 페이지의 댓글 출력.)">
+      <created>1636960101257</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1636960101257</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,7 +273,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="21.10.29 (부트스트랩의 기본 문법과 페이지 적용)" />
     <MESSAGE value="21.10.30 (부트스트랩을 이용한 블로그 목록 페이지 구현과 브로그 상세화면 구현)" />
     <MESSAGE value="21.10.30 (포스트 목록 페이지와 상세페이지에 대표 이미지 출력)" />
     <MESSAGE value="21.10.30 (Post모델에 file_upload 필드 추가)" />
@@ -289,6 +297,7 @@
     <MESSAGE value="21.11.13 (포스트 작성할 때 텍스트로 태그 저장)" />
     <MESSAGE value="21.11.14 (포스트 수정할 떄 텍스트로 태그 저장)" />
     <MESSAGE value="21.11.14 (소셜 로그인 기능 구현 및 account를 이용한 로그아웃 회원가입 추가)" />
-    <option name="LAST_COMMIT_MESSAGE" value="21.11.14 (소셜 로그인 기능 구현 및 account를 이용한 로그아웃 회원가입 추가)" />
+    <MESSAGE value="21.11.15 (comment 모델 생성과 post 상세 페이지의 댓글 출력.)" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.11.15 (comment 모델 생성과 post 상세 페이지의 댓글 출력.)" />
   </component>
 </project>

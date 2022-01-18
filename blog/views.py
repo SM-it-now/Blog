@@ -1,16 +1,48 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Post, Category, Tag
+from .models import Post, Category, Tag, Comment
 from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from .forms import CommentForm
 
+# rest framework
+from .serializers import PostSerializers, CommentSerializers
+from rest_framework import generics, viewsets, mixins
+
+
+# Create your views here.
+
+# REST Framework
+class PostListApi(generics.ListAPIView):
+    queryset = Post.objects.all().order_by('-created_at')
+    serializer_class = PostSerializers
+
+
+class PostDetailApi(generics.RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializers
+
+
+class PostCreateApi(generics.CreateAPIView):
+    serializer_class = PostSerializers
+
+    def get_object(self, queryset=None):
+        return Post.objects.filter(author=self.request.user)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request)
+
+
+# class CategoryListApi(PostListApi):
+#
+#     def get_queryset(self, **kwargs):
+#         return Post.objects.filter(category__slug=self.kwargs['slug'])
+
+
 
 
 # CBV를 이용한 views 클래스 구현하기.
-# Create your views here.
-
 # ListView 라이브러리를 이용해서 post 목록을 구현
 class PostList(ListView):
     model = Post

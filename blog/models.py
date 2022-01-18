@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 # 카테고리 모델
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -17,6 +18,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return f'/blog/category/{self.slug}/'
+
 
 # Tag 모델
 class Tag(models.Model):

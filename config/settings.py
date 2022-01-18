@@ -47,6 +47,9 @@ INSTALLED_APPS = [
 
     'blog',
     'single_pages',
+
+    # rest framework
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

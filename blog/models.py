@@ -70,7 +70,7 @@ class Post(models.Model):
 
 # 댓글 기능 모델
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_comment')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     create_at = models.DateTimeField(auto_now_add=True)

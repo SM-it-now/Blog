@@ -7,37 +7,58 @@ from django.utils.text import slugify
 from .forms import CommentForm
 
 # rest framework
-from .serializers import PostSerializers, CommentSerializers
-from rest_framework import generics, viewsets, mixins
+from .serializers import PostSerializer, CommentSerializer
+from rest_framework import generics, viewsets
 
 
 # Create your views here.
 
 # REST Framework
-class PostListApi(generics.ListAPIView):
-    queryset = Post.objects.all().order_by('-created_at')
-    serializer_class = PostSerializers
 
-
-class PostDetailApi(generics.RetrieveAPIView):
+# viewsets
+class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
-    serializer_class = PostSerializers
+    serializer_class = PostSerializer
 
 
-class PostCreateApi(generics.CreateAPIView):
-    serializer_class = PostSerializers
-
-    def get_object(self, queryset=None):
-        return Post.objects.filter(author=self.request.user)
-
-    def post(self, request, *args, **kwargs):
-        return self.create(request)
 
 
-# class CategoryListApi(PostListApi):
+
+
+# generic APIView
+# class PostListApi(generics.ListAPIView):
+#     queryset = Post.objects.all().order_by('-created_at')
+#     serializer_class = PostSerializer
 #
+#
+# class PostDetailApi(generics.RetrieveAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+#
+#
+# class PostCreateApi(generics.CreateAPIView):
+#     serializer_class = PostSerializer
+#
+#     def get_object(self, queryset=None):
+#         return Post.objects.filter(author=self.request.user)
+#
+#     def post(self, request, *args, **kwargs):
+#         return self.create(request)
+#
+#
+# class CategoryListApi(PostListApi):
 #     def get_queryset(self, **kwargs):
 #         return Post.objects.filter(category__slug=self.kwargs['slug'])
+#
+#
+# class TagListApi(PostListApi):
+#     def get_queryset(self, **kwargs):
+#         return Post.objects.filter(tags__slug=self.kwargs['slug'])
+#
+#
+# class CommentApiView(viewsets.ModelViewSet):
+#     serializer_class = CommentSerializer
+#     queryset = Comment.objects.all()
 
 
 
